@@ -46,4 +46,7 @@ def es(G):
 
     return esG
 
-
+G = nx.cycle_graph(4)
+G.add_node(4)
+G.add_edge(0,4)
+print es(G)

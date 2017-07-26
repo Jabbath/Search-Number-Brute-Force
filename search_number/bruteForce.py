@@ -23,7 +23,7 @@ def getWidth(order):
     for i in xrange(len(order) - 1):
         left = left.union(order[i])
         right = set.union(*(order[i + 1:]))
-        print 'For i = ', i, 'left = ', left, 'and right= ', right
+        #print 'For i = ', i, 'left = ', left, 'and right= ', right
 
         newWidth = len(left.intersection(right))
 
@@ -51,15 +51,21 @@ def linearWidth(G):
 
     #Get all possible edge orderings
     orderings = list(itertools.permutations(edges))
+    print 'There are: ', len(orderings), 'orderings to check'
 
     #Find the least width edge ordering
     leastWidth = getWidth(orderings[0])
     leastOrdering = orderings[0]
 
+    i = 0
+
     for order in orderings:
-        
+        i = i + 1
+
+        print i
+
         width = getWidth(order)
-        print 'The width of: ', order, 'is: ', width
+        #print 'The width of: ', order, 'is: ', width
 
         if width < leastWidth:
             leastWidth = width

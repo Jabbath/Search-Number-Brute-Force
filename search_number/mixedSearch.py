@@ -1,6 +1,6 @@
 #Calculates the mixed search number of a graph G
 import networkx as nx
-from bruteForce import getWidth
+from bruteForce import linearWidth
 
 def pendantNodes(G):
     '''
@@ -72,5 +72,6 @@ def ms(G):
     pendant = pendantNodes(G)
     Gh = subdivide(G, pendant)
 
-    msG = getWidth(Gh)
+    msG = linearWidth(Gh)
     return msG
+
